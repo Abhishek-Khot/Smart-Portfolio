@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       body {
-        
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -17,46 +16,72 @@
       }
     </style>
   </head>
-  <body
-    class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-50"
-  >
+  <body class="min-h-screen flex items-center justify-center relative overflow-hidden bg-white">
     <!-- Form Container -->
-    <!-- Form Container -->
-    <div class="relative bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-2xl w-11/12 max-w-md z-10">
-        <!-- Header Section -->
-        <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-6 text-center rounded-xl">
-          <h1 class="text-2xl font-bold mb-2">SmartTrack</h1>
-          <p class="text-white/90 text-sm">Welcome to the Portfolio creating website</p>
-        </div>
-        <br />
-        <!-- Form Section -->
-        <form action="/dashboard/homepage" method="POST" enctype="multipart/form-data" class="space-y-6">
-          <div>
-            <label for="portfolioName" class="block text-base font-normal text-white text-gray-700">Portfolio Name</label>
-            <input type="text" id="portfolioName" name="portfolioName" placeholder="Enter portfolio name" required class="w-full mt-1 p-3 border text-gray-700 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500" />
-          </div>
-          <div>
-            <label for="userName" class="block text-base font-normal text-white text-gray-700">User Name</label>
-            <input type="text" id="userName" name="userName" placeholder="Enter your name" required class="w-full mt-1 p-3 border text-gray-700 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500" />
-          </div>
-          <div>
-            <label for="expertise" class="block text-base font-normal text-white text-gray-700">Expertise (comma-separated)</label>
-            <input type="text" id="expertise" name="expertise" placeholder="Enter your expertise" required class="w-full mt-1 p-3 border text-gray-700 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500" />
-          </div>
-          <div>
-            <label for="profilePhoto" class="block text-base font-normal text-white text-gray-700">Profile Photo</label>
-            <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" class="w-full mt-1 p-3 border text-gray-700 rounded-lg shadow-sm" />
-          </div>
-          <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 rounded-lg hover:opacity-90 transition">Save</button>
-        </form>
-        <div class="text-center mt-6">
-          <p class="block text-base font-normal text-white text-gray-700">
-            Already Have Portfolio? <a href="/dashboard" class="text-purple-400 font-semibold hover:underline">Sign In</a>
-          </p>
-        </div>
+    <div class="relative bg-white p-8 rounded-xl shadow-2xl w-11/12 max-w-md z-10 border border-gray-200">
+      <!-- Header Section -->
+      <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-6 text-center rounded-xl">
+        <h1 class="text-2xl font-bold mb-2">SmartTrack</h1>
+        <p class="text-white/90 text-sm">Welcome to the Portfolio creating website</p>
       </div>
-
-    <!-- Fireworks Script -->
-    
+      <br />
+      <!-- Form Section -->
+      <form action="/dashboard/homepage" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <div>
+          <label for="portfolioName" class="block text-base font-normal text-gray-900">Portfolio Name</label>
+          <input
+            type="text"
+            id="portfolioName"
+            name="portfolioName"
+            placeholder="Enter portfolio name"
+            required
+            class="w-full mt-1 p-3 border border-gray-300 text-gray-900 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500"
+          />
+        </div>
+        <div>
+          <label for="userName" class="block text-base font-normal text-gray-900">User Name</label>
+          <input
+            type="text"
+            id="userName"
+            name="userName"
+            placeholder="Enter your name"
+            required
+            class="w-full mt-1 p-3 border border-gray-300 text-gray-900 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500"
+          />
+        </div>
+        <div>
+          <label for="expertise" class="block text-base font-normal text-gray-900">Expertise (comma-separated)</label>
+          <input
+            type="text"
+            id="expertise"
+            name="expertise"
+            placeholder="Enter your expertise"
+            required
+            class="w-full mt-1 p-3 border border-gray-300 text-gray-900 rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500"
+          />
+        </div>
+        <div>
+          <label for="profilePhoto" class="block text-base font-normal text-gray-900">Profile Photo</label>
+          <input
+            type="file"
+            id="profilePhoto"
+            name="profilePhoto"
+            accept="image/*"
+            class="w-full mt-1 p-3 border border-gray-300 text-gray-900 rounded-lg shadow-sm"
+          />
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 rounded-lg hover:opacity-90 transition"
+        >
+          Save
+        </button>
+      </form>
+      <div class="text-center mt-6">
+        <p class="block text-base font-normal text-gray-900">
+          Already Have Portfolio? <a href="/dashboard" class="text-purple-600 font-semibold hover:underline">Sign In</a>
+        </p>
+      </div>
+    </div>
   </body>
 </html>

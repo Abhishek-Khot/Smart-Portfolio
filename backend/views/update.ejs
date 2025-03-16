@@ -6,25 +6,70 @@
   <title>Combined Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    // Function to toggle the theme
     function toggleTheme() {
       const body = document.body;
       const elementsToToggle = document.querySelectorAll('nav, section, header, label');
-
-      // Toggle the main theme classes for the body
-      body.classList.toggle('bg-gray-800');
-      body.classList.toggle('bg-gray-100');
-      body.classList.toggle('text-gray-100');
-      body.classList.toggle('text-gray-800');
-
-      // Toggle theme classes for specific elements
-      elementsToToggle.forEach((el) => {
-        el.classList.toggle('bg-gray-900');
-        el.classList.toggle('bg-white');
-        el.classList.toggle('text-gray-100');
-        el.classList.toggle('text-gray-800');
-      });
+  
+      // Check the current theme and toggle accordingly
+      if (body.classList.contains('bg-gray-800')) {
+        // Switch to light theme
+        body.classList.remove('bg-gray-800', 'text-gray-100');
+        body.classList.add('bg-gray-100', 'text-gray-800');
+  
+        elementsToToggle.forEach((el) => {
+          el.classList.remove('bg-gray-900', 'text-gray-100');
+          el.classList.add('bg-white', 'text-gray-800');
+        });
+  
+        // Save the theme preference to localStorage
+        localStorage.setItem('theme', 'light');
+      } else {
+        // Switch to dark theme
+        body.classList.remove('bg-gray-100', 'text-gray-800');
+        body.classList.add('bg-gray-800', 'text-gray-100');
+  
+        elementsToToggle.forEach((el) => {
+          el.classList.remove('bg-white', 'text-gray-800');
+          el.classList.add('bg-gray-900', 'text-gray-100');
+        });
+  
+        // Save the theme preference to localStorage
+        localStorage.setItem('theme', 'dark');
+      }
     }
-
+  
+    // Function to apply the saved theme on page load
+    function applySavedTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const body = document.body;
+      const elementsToToggle = document.querySelectorAll('nav, section, header, label');
+  
+      if (savedTheme === 'light') {
+        // Apply light theme
+        body.classList.remove('bg-gray-800', 'text-gray-100');
+        body.classList.add('bg-gray-100', 'text-gray-800');
+  
+        elementsToToggle.forEach((el) => {
+          el.classList.remove('bg-gray-900', 'text-gray-100');
+          el.classList.add('bg-white', 'text-gray-800');
+        });
+      } else {
+        // Apply dark theme (default)
+        body.classList.remove('bg-gray-100', 'text-gray-800');
+        body.classList.add('bg-gray-800', 'text-gray-100');
+  
+        elementsToToggle.forEach((el) => {
+          el.classList.remove('bg-white', 'text-gray-800');
+          el.classList.add('bg-gray-900', 'text-gray-100');
+        });
+      }
+    }
+  
+    // Apply the saved theme when the page loads
+    document.addEventListener('DOMContentLoaded', applySavedTheme);
+  
+    // Function to show/hide sections
     function showSection(sectionId) {
       const sections = document.querySelectorAll('section');
       sections.forEach((section) => {
@@ -35,9 +80,9 @@
   </script>
 </head>
 <body class="bg-gray-800 text-gray-100">
-  <div class="container mx-auto p-6">
+  <div class="container mx-auto p-6 border-2">
     <!-- Header -->
-    <header class="flex items-center justify-between py-4 bg-gray-900 shadow-md rounded-md">
+    <header class="flex items-center justify-between py-4 bg-gray-900 shadow-md rounded-md border-2">
         <h1 class="text-3xl font-bold">&nbsp; Hi <span class="text-blue-400"><%= user.name %></span>, Here you can Update and Add the Information!</h1>
         <div class="flex items-center space-x-6">
           <!-- Theme Toggle Button -->
@@ -57,7 +102,7 @@
       </header>
 
     <!-- Navigation -->
-    <nav class="bg-gray-900 shadow-md rounded-md p-4 mb-6">
+    <nav class="bg-gray-900 shadow-md rounded-md p-4 mb-6 border-2">
       <ul class="flex space-x-4">
         <li><button onclick="showSection('home')" class="text-white bg-blue-500 px-4 py-2 rounded-md hover:bg-blue-700">Home</button></li>
         <li><button onclick="showSection('about')" class="text-white bg-blue-500 px-4 py-2 rounded-md hover:bg-blue-700">About</button></li>
@@ -68,7 +113,7 @@
     </nav>
 
     <!-- Sections -->
-    <section id="home" class="bg-gray-900 shadow-md rounded-md p-6">
+    <section id="home" class="bg-gray-900 shadow-md rounded-md p-6 border-2">
       <h2 class="text-xl font-semibold mb-4">Home Section</h2>
       <form action="/dashboard/home" method="POST">
         <label for="portfolioName" class="block mb-2">Portfolio Name:</label>
@@ -84,7 +129,7 @@
       </form>
     </section>
 
-    <section id="about" class="bg-gray-900 shadow-md rounded-md p-6 hidden">
+    <section id="about" class="bg-gray-900 shadow-md rounded-md p-6 hidden border-2">
       <h2 class="text-xl font-semibold mb-4">About Section</h2>
       <form action="/dashboard/about" method="POST">
         <label for="description" class="block mb-2">Description:</label>
@@ -100,7 +145,7 @@
       </form>
     </section>
 
-    <section id="projects" class="bg-gray-900 shadow-md rounded-md p-6 hidden">
+    <section id="projects" class="bg-gray-900 shadow-md rounded-md p-6 hidden border-2">
       <h2 class="text-xl font-semibold mb-4">Projects Section</h2>
       <form action="/dashboard/projects" method="POST" enctype="multipart/form-data">
         <label for="projectPhoto" class="block mb-2">Upload Project Photo:</label>
@@ -119,7 +164,7 @@
       </form>
     </section>
 
-    <section id="blogs" class="bg-gray-900 shadow-md rounded-md p-6 hidden">
+    <section id="blogs" class="bg-gray-900 shadow-md rounded-md p-6 hidden border-2">
       <h2 class="text-xl font-semibold mb-4">Blogs Section</h2>
       <form action="/dashboard/blogs" method="POST">
         <label for="topic" class="block mb-2">Topic:</label>
@@ -138,7 +183,7 @@
       </form>
     </section>
 
-    <section id="resume" class="bg-gray-900 shadow-md rounded-md p-6 hidden">
+    <section id="resume" class="bg-gray-900 shadow-md rounded-md p-6 hidden border-2">
       <h2 class="text-xl font-semibold mb-4">Resume Section</h2>
       <form action="/dashboard/resume" method="POST" enctype="multipart/form-data">
         <label for="resumePhoto" class="block mb-2">Upload Resume:</label>
