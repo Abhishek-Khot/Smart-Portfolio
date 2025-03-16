@@ -12,7 +12,6 @@ const UserDetails = ({ user }) => {
       />
       <h2 className="text-2xl font-bold text-center mb-4">{user.name}</h2>
       <p className="text-center mb-4"><strong>Email:</strong> {user.email}</p>
-      {/* Add other details like About, Projects, Blogs, Resume */}
     </div>
   );
 };

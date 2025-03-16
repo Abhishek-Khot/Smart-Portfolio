@@ -55,7 +55,7 @@ const App = () => {
               <>
                 {/* Search Bar */}
                 {/* Search Bar */}
-                <div className="h-40 flex flex-col items-center justify-center bg-gray-900 shadow-md">
+                <div className="h-40 flex flex-col items-center justify-center bg-white-900 shadow-md">
                   <input
                     type="text"
                     value={searchTerm}

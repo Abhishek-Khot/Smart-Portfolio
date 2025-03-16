@@ -10,7 +10,7 @@ const Resume = ({ userId }) => {
         const response = await axios.get(
           `http://localhost:5000/api/users/${userId}/resume`
         );
-        setResume(response.data.resume); // The normalized photoPath or URL for the resume
+        setResume(response.data.resume);
       } catch (error) {
         console.error("Error fetching resume:", error);
       }
@@ -22,9 +22,9 @@ const Resume = ({ userId }) => {
   }, [userId]);
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen flex items-center justify-center">
+    <div className="bg-gradient-to-b from-white via-gray-50 to-white min-h-screen flex items-center justify-center">
       {resume ? (
-        <div className="w-11/12 max-w-5xl bg-white shadow-lg rounded-lg p-8 text-center bg-gradient-to-b">
+        <div className="w-11/12 max-w-5xl bg-white shadow-lg rounded-lg p-8 text-center">
           <h1 className="text-6xl font-bold bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text text-transparent">
             RESUME
           </h1>
@@ -36,7 +36,7 @@ const Resume = ({ userId }) => {
             resume.endsWith(".jpeg") ? (
               <div className="mb-6">
                 <img
-                  src={resume} // The normalized resume image URL
+                  src={resume}
                   alt="Resume"
                   className="w-full max-w-md mx-auto h-full rounded-lg shadow-md"
                 />
@@ -61,7 +61,7 @@ const Resume = ({ userId }) => {
           </div>
         </div>
       ) : (
-        <p className="text-gray-300 text-xl font-semibold">Loading resume...</p>
+        <p className="text-gray-600 text-xl font-semibold">Loading resume...</p>
       )}
     </div>
   );

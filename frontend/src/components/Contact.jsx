@@ -20,60 +20,60 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-[90.8vh] flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-      <form className="w-full max-w-sm bg-gray-900 shadow-md rounded-md p-6 space-y-4">
-        <h3 className="text-xl font-bold text-center text-purple-400">Contact</h3>
-        <p className="text-sm text-gray-400 text-center">
+    <div className="min-h-[90.8vh] flex items-center justify-center bg-white text-gray-900">
+      <form className="w-full max-w-sm bg-white shadow-md rounded-md p-6 space-y-4 border-t-2 border-black-900">
+        <h3 className="text-xl font-bold text-center text-purple-600">Contact</h3>
+        <p className="text-sm text-gray-600 text-center">
           Send the OA link for this profile.
         </p>
 
         <div>
-          <label htmlFor="name" className="block text-sm font-medium mb-1 text-gray-200">
+          <label htmlFor="name" className="block text-sm font-medium mb-1 text-gray-700">
             Name:
           </label>
           <input
             id="name"
             name="name"
             type="text"
-            className="w-full px-3 py-1.5 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-purple-500 text-gray-200"
+            className="w-full px-3 py-1.5 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring focus:ring-purple-500 text-gray-900"
             required
           />
         </div>
 
         <div>
-          <label htmlFor="companyName" className="block text-sm font-medium mb-1 text-gray-200">
+          <label htmlFor="companyName" className="block text-sm font-medium mb-1 text-gray-700">
             Company Name:
           </label>
           <input
             id="companyName"
             name="companyName"
             type="text"
-            className="w-full px-3 py-1.5 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-purple-500 text-gray-200"
+            className="w-full px-3 py-1.5 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring focus:ring-purple-500 text-gray-900"
           />
         </div>
 
         <div>
-          <label htmlFor="description" className="block text-sm font-medium mb-1 text-gray-200">
+          <label htmlFor="description" className="block text-sm font-medium mb-1 text-gray-700">
             Description:
           </label>
           <textarea
             id="description"
             name="description"
             rows={3}
-            className="w-full px-3 py-1.5 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-purple-500 text-gray-200"
+            className="w-full px-3 py-1.5 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring focus:ring-purple-500 text-gray-900"
             required
           ></textarea>
         </div>
 
         <div>
-          <label htmlFor="oaLink" className="block text-sm font-medium mb-1 text-gray-200">
+          <label htmlFor="oaLink" className="block text-sm font-medium mb-1 text-gray-700">
             OA Link:
           </label>
           <input
             id="oaLink"
             name="oaLink"
             type="text"
-            className="w-full px-3 py-1.5 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring focus:ring-purple-500 text-gray-200"
+            className="w-full px-3 py-1.5 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring focus:ring-purple-500 text-gray-900"
           />
         </div>
 

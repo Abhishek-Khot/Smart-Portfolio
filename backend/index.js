@@ -230,8 +230,11 @@ app.post("/dashboard/home", authMiddleware, async (req, res) => {
   try {
     const { portfolioName, userName, expertise } = req.body;
 
+    // Split the expertise string into an array
+    const expertiseArray = expertise.split(",").map(skill => skill.trim());
+
     await User.findByIdAndUpdate(req.user.id, {
-      homepage: { portfolioName, userName, expertise },
+      homepage: { portfolioName, userName, expertise: expertiseArray },
     });
 
     res.redirect("/dashboard");
@@ -239,6 +242,7 @@ app.post("/dashboard/home", authMiddleware, async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
 
 // Add similar routes for "About", "Projects", "Blogs", "Resume"
 
@@ -563,7 +567,7 @@ app.get("/api/users/:userId/resume", async (req, res) => {
     const user = await User.findById(userId).select("resume");
 
     // Log the original resume photo path for debugging
-    console.log("Original resume photoPath:", user?.resume?.photoPath);
+    // console.log("Original resume photoPath:", user?.resume?.photoPath);
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
@@ -576,7 +580,7 @@ app.get("/api/users/:userId/resume", async (req, res) => {
     }
 
     // Log the normalized resume photo path for debugging
-    console.log("Normalized resume photoPath:", user.resume?.photoPath);
+    // console.log("Normalized resume photoPath:", user.resume?.photoPath);
 
     res.json({ resume: user.resume?.photoPath }); // Send the normalized resume path in the response
   } catch (error) {

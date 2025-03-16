@@ -9,10 +9,10 @@ const Projects = ({ userId }) => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        if (!userId) return; // Ensure userId is available before fetching
+        if (!userId) return;
 
         setLoading(true);
-        setError(null); // Reset error
+        setError(null);
 
         const response = await axios.get(
           `http://localhost:5000/api/users/${userId}/projects`
@@ -31,7 +31,7 @@ const Projects = ({ userId }) => {
 
   const [showLinks, setShowLinks] = useState(
     projects.reduce((acc, project) => {
-      acc[project._id] = false; // Default: no project has links visible
+      acc[project._id] = false;
       return acc;
     }, {})
   );
@@ -39,21 +39,21 @@ const Projects = ({ userId }) => {
   const handlePurchaseClick = (projectId) => {
     setShowLinks((prevState) => ({
       ...prevState,
-      [projectId]: true, // Show links only for the clicked project
+      [projectId]: true,
     }));
   };
 
   return (
-    <div className="min-h-screen w-screen flex flex-col items-center bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white py-10 overflow-auto scrollbar-hide">
+    <div className="min-h-screen w-screen flex flex-col items-center bg-gradient-to-b from-white via-gray-50 to-white text-gray-900 py-10 overflow-auto scrollbar-hide">
       <h1 className="text-6xl font-extrabold bg-gradient-to-r from-teal-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-4">
         My Recent <strong className="text-purple-400">Works</strong>
       </h1>
-      <p className="text-lg text-gray-300 mb-12">
+      <p className="text-lg text-gray-600 mb-12">
         Here are a few projects I've worked on recently.
       </p>
 
       {loading ? (
-        <p className="text-gray-300 text-lg">Loading projects...</p>
+        <p className="text-gray-600 text-lg">Loading projects...</p>
       ) : error ? (
         <p className="text-red-500 text-lg">{error}</p>
       ) : projects.length > 0 ? (
@@ -61,7 +61,7 @@ const Projects = ({ userId }) => {
           {projects.map((project) => (
             <div
               key={project._id}
-              className="flex flex-col md:flex-row items-center bg-gray-800 rounded-lg shadow-md w-[90vw] p-6"
+              className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-md w-[90vw] p-6"
             >
               {/* Project Image */}
               {project.photo && (
@@ -77,7 +77,7 @@ const Projects = ({ userId }) => {
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-indigo-500 bg-clip-text text-transparent mb-4">
                   {project.name}
                 </h3>
-                <p className="text-gray-300 mb-4 text-left">
+                <p className="text-gray-600 mb-4 text-left">
                   {project.description}
                 </p>
                 {!showLinks[project._id] ? (
@@ -102,7 +102,7 @@ const Projects = ({ userId }) => {
           ))}
         </div>
       ) : (
-        <p className="text-gray-400 text-lg">
+        <p className="text-gray-600 text-lg">
           No projects available for this user.
         </p>
       )}

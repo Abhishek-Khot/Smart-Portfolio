@@ -49,7 +49,7 @@ const SocialLinks = ({ userId }) => {
   };
 
   if (loading) {
-    return <p className="text-center mt-10 text-gray-400">Loading social links...</p>;
+    return <p className="text-center mt-10 text-gray-600">Loading social links...</p>;
   }
 
   if (error) {
@@ -57,12 +57,12 @@ const SocialLinks = ({ userId }) => {
   }
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen text-white">
+    <div className="bg-white min-h-screen text-gray-900">
       <header className="py-6 text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
           Your Social Links
         </h1>
-        <p className="mt-2 text-gray-400">Click on a logo to visit the profile.</p>
+        <p className="mt-2 text-gray-600">Click on a logo to visit the profile.</p>
       </header>
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
@@ -70,7 +70,7 @@ const SocialLinks = ({ userId }) => {
           {socialLinks.map((link, index) => (
             <div
               key={index}
-              className="flex flex-col items-center bg-gray-800 shadow-md rounded-lg p-6 hover:shadow-lg transition hover:-translate-y-1 hover:scale-[1.02] duration-300"
+              className="flex flex-col items-center bg-gray-100 shadow-md rounded-lg p-6 hover:shadow-lg transition hover:-translate-y-1 hover:scale-[1.02] duration-300"
             >
               <a
                 href={link}
